@@ -1,0 +1,48 @@
+<div class="">
+    <div class="loader-g" *ngIf="dataLoading">
+        <h1> <i class="fas fa-sync fa-spin bg-spin"></i> </h1>
+    </div>
+
+    <div class="banner" style="background-repeat: no-repeat;background-size: cover;background-position:center;background-image:url('assets/imagenes/default/personas.jpg')">
+        <div style="background: linear-gradient(to bottom, #197dff8f,70%, #ff276894);position:absolute;top:0;left:0;width: 100%;height: 100%;">
+            <div class="container2" style="position: relative;">
+                <div class="title">
+                    <h1 class="m-0">Dra. Belizabeth Montilla</h1>
+                    <h2 class="m-0">Psicóloga Clínica <span class="coach1">- Coach de vida</span> </h2>
+                    <h2 class="coach2">Coach de vida</h2>
+                </div>
+                <div class="container-img-profile animate__animated animate animate__fadeIn " style="background-image:url('assets/imagenes/default/perfil-sm.jpg')">
+
+                </div>
+                <div class="text2 animate__animated animate animate__fadeInRight animate__slow">
+                    El único límite está en tu mente, las barreras son la discapacidad de la sociedad.
+                </div>
+            </div>
+        </div>
+        <div style="height: 100px; overflow: hidden;position:absolute;bottom:0;width: 100%;margin-bottom: -5px;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:rgba(255, 255, 255, 0.329);"></path></svg></div>
+        <div style="height: 70px; overflow: hidden;position:absolute;bottom:0;width: 100%;margin-bottom: -5px;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:white;"></path></svg></div>
+    </div>
+
+    <app-services></app-services>
+
+
+    <div style="background: rgba(255, 244, 255, 0.938);position: relative;z-index: 1;">
+        <div style="height: 100px; overflow: hidden;position: absolute;top:0;width:100%;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-24.54,-10.34 C149.99,150.00 271.49,-49.98 517.21,65.63 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: rgb(255, 227, 255);"></path></svg></div>
+        <div style="height: 70px; overflow: hidden;position: absolute;top:0;width: 100%;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-24.54,-10.34 C149.99,150.00 271.49,-49.98 517.21,65.63 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+        <br>
+        <app-help-you></app-help-you>
+        <br>
+        <br>
+        <div style="height: 60px; overflow: hidden;position:absolute;bottom:0;width: 100%;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:white;"></path></svg></div>
+        <div style="height: 90px; overflow: hidden;position:absolute;bottom:0;width: 100%;z-index: -2;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:rgb(255, 227, 255);"></path></svg></div>
+    </div>
+    <app-last-articles [lastArticles]="lastArticles"></app-last-articles>
+
+    <app-comments-home [videosCount]="lastVideos.length"></app-comments-home>
+
+
+
+    <app-last-videos [videos]="lastVideos"></app-last-videos>
+    <app-wellness></app-wellness>
+
+</div>

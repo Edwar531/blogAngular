@@ -1,0 +1,134 @@
+<div class="animate fadeIn container">
+
+    <div class="hide" [ngClass]="{'show':editorLoading || sendLoading}">
+        <div class="loader-g-admin ">
+            <div>
+                <h1><i class="fas fa-sync rotated"></i></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="card animate__animated  animate__fadeIn">
+        <div class="card-header bg-white">
+            <h2 class="m-0">
+                <span [ngClass]="{'hide':edit}">Agregar nuevo artículo </span>
+                <span [ngClass]="{'hide':edit==false}">Editar arículo</span>
+            </h2>
+        </div>
+        <div class="card-body" *ngIf="!dataLoading">
+
+            <form [formGroup]="formula" *ngIf="formula" (ngSubmit)="saveUpdate()">
+                <input formControlName="ideditor" type="hidden" value="sad" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Imagen principal</label>
+
+                            <img *ngIf="imageP" class="imgP" [src]="imageP" alt="">
+
+                            <img *ngIf="!imageP" class="imgP" src="assets/imagenes/default/notImage.jpg" alt="">
+
+                            <div class="mt-1" *ngIf="progressInfo.show">
+                                <!-- {{progressInfo.percentage}} -->
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progressInfo.percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progressInfo.percentage + '%' }">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="btn btn-blue btn-file btn-block mt-2">
+                               <i class="fas fa-upload"></i> Subir imagen
+                                <input (change)="selectFile($event)"  type="file" accept="image/*"/>
+                             </label>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="col-12 px-2">
+                                <div class="form-group">
+                                    <label for="">Título:</label>
+                                    <input formControlName="title" type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" maxlength="120">
+                                    <label *ngIf="validate('title').valid" class="text-danger"> {{validate('title').error }} </label>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let category of categories">
+
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 px-2">
+
+                                <div class="form-group">
+
+                                    <label for="">Categoría:</label>
+                                    <!-- (change)="changeCity($event)" -->
+
+                                    <select class="custom-select" formControlName="category_id">
+
+                                      <option [ngValue]="" [selected]="categorySelected == 'no'"></option>
+
+                                      <option *ngFor="let category of categories" [ngValue]="category.id" [selected]="categorySelected == 'no' && category.id == article.category_id" >{{category.name}} </option>
+                               </select>
+                                    <label *ngIf="validate('category_id').valid" class="text-danger"> {{validate('category_id').error }} </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 px-2">
+                                <div class="form-group">
+                                    <label for="">Autor:</label>
+                                    <input maxlength="100" formControlName="author" type="text" class="form-control" placeholder="" name="date">
+                                    <label *ngIf="validate('author').valid" class="text-danger"> {{validate('author').error }} </label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-md-6 px-2">
+                                <div class="form-group">
+                                    <label for="">Estatus:</label>
+                                    <select class="custom-select" formControlName="status" ngClass="'text-success':formula.status =='publicado'">
+
+                                      <option value="publicado">Publicado</option>
+                                      <option value="no-publicado">No publicado</option>
+                                    </select>
+                                    <label *ngIf="validate('status').valid" class="text-danger"> {{validate('status').error }} </label>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="col-lg-7 col-md-12 px-2">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-7 col-md-6 px-3">
+                                            <label for="">Fecha:</label>
+                                            <input formControlName="date" type="date" class="form-control" placeholder="yyyy-mm-dd" name="date">
+                                            <label *ngIf="validate('date').valid" class="text-danger"> {{validate('date').error }} </label>
+                                        </div>
+                                        <div class="col-lg-5 col-md-6 px-3">
+                                            <label for="">Hora:</label>
+                                            <input formControlName="hour" type="time" class="form-control" placeholder="yyyy-mm-dd" name="hour">
+                                            <label *ngIf="validate('hour').valid" class="text-danger"> {{validate('hour').error }} </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 px-1">
+                        <div class="form-group">
+                            <label for="">Descripción</label>
+                            <editor formControlName="description" apiKey="rrye5gntfzbxfn194glfpj6wogebl2b8yzqmazpx29olr4th" [init]="config()"></editor>
+                            <label *ngIf="validate('description').valid" class="text-danger"> {{validate('description').error }} </label>
+
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary float-right ml-2 mb-2">
+                          <span [ngClass]="{'hide':edit}"><i class="fa fa-save" aria-hidden="true"></i> Guardar </span>
+                          <span [ngClass]="{'hide':edit==false}"><i class="fa fa-save" aria-hidden="true"></i> Guardar cambios </span>
+                            </button>
+                            <button [routerLink]="['/administrar/articulos']" type="submit" class="btn btn-white float-right"> <i class="fas fa-backward" aria-hidden="true"></i> Cancelar / Atrás</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

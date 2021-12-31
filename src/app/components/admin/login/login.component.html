@@ -1,0 +1,30 @@
+<div style="width: 100%;height:90vh;display: flex;align-items: center;justify-content: center;">
+    <div class="loader-g-admin" *ngIf="sendLoading">
+        <h1> <i class="fas fa-sync fa-spin bg-spin"></i> </h1>
+    </div>
+    <div class="card mb-5" style="width: 300px;">
+        <div class="card-header bg-white">
+            <h3 class="card-title text-center m-0">Inicio de sesión</h3>
+        </div>
+        <div class="card-body">
+
+            <form [formGroup]="form" (ngSubmit)="sendLogin()">
+                <div class="form-group">
+                    <label for=""> <i class="fa fa-envelope" aria-hidden="true"></i> Correo</label>
+                    <input formControlName="email" type="text" name="name" class="form-control" placeholder="" aria-describedby="helpId">
+                    <label *ngIf="validate('email').valid" class="text-danger"> {{validate('email').error }} </label>
+                </div>
+                <div class="form-group">
+                    <label for=""> <i class="fa fa-key" aria-hidden="true"></i> Contraseña</label>
+                    <input formControlName="password" type="password" name="password" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    <label *ngIf="validate('password').valid" class="text-danger"> {{validate('password').error }} </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg"> <i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                    <button routerLink="/" type="submit" class="btn btn-white btn-block btn-lg"> <i class="fas fa-home"></i> Inicio</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

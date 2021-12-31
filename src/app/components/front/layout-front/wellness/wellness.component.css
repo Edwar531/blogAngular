@@ -1,0 +1,69 @@
+.wellness {
+    /* margin-top: 80px; */
+    position: relative;
+    overflow: auto;
+    height: 800px;
+}
+
+.wellness .container-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    background: linear-gradient(to top, #197dff96, #ff276880);
+}
+
+.wellness .text {
+    padding-top: 70px;
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-size: 70px !important;
+    text-shadow: 3px 3px rgb(49, 49, 49), -1px -1px rgb(49, 49, 49);
+    font-family: 'Carattere', cursive;
+    font-weight: 600 !important;
+}
+
+.wellness .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+@media (max-width:1200px) {
+    .wellness .text {
+        font-size: 60px !important;
+    }
+    .wellness {
+        height: 700px;
+    }
+}
+
+@media (max-width:768px) {
+    .wellness .text {
+        font-size: 50px !important;
+        text-shadow: 1px 1px rgb(2, 2, 2), -1px -1px rgb(49, 49, 49);
+    }
+    .wellness {
+        height: 600px;
+    }
+}
+
+@media (max-width:576px) {
+    .wellness {
+        height: 540px
+    }
+    .wellness .text {
+        font-size: 36px !important;
+    }
+}

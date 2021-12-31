@@ -1,0 +1,65 @@
+<div class="bg-danger pb-4" style="width: 100%;margin-top: -30px;background-image:url('assets/imagenes/default/hands.jpg');background-repeat:no-repeat;background-attachment: fixed;background-position:center;background-size:cover;padding-top: -50px;position: relative;">
+    <div style="background: rgba(255, 255, 255, 0.856);position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+
+    <div style="height: 100px; overflow: hidden;position: absolute;top:0;width:100%;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-24.54,-10.34 C149.99,150.00 271.49,-49.98 517.21,65.63 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: rgb(255, 227, 255);"></path></svg></div>
+
+    <div style="height: 50px; overflow: hidden;position: absolute;top:0;width: 100%;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-24.54,-10.34 C149.99,150.00 271.49,-49.98 517.21,65.63 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+
+    <div class="container2 py-5">
+
+        <div class="row m-auto" style="width: 100%;">
+            <div class="col-12">
+                <h1 style="z-index: 5;" class="title-fucsia mt-5 mb-5">Testimonios</h1>
+            </div>
+        </div>
+
+        <swiper [config]="config" class="mySwiper" style="width: 100%;">
+            <ng-template swiperSlide class="mb-3 px-3">
+                <h1 class="text-center"><i class="fas fa-quote-left text-secondary"></i></h1>
+                <h3 class="text-center">Fernando V, 41 años</h3>
+                <p class="text-justify">
+                    En mi caso personal me tomó mucho tiempo el decidirme comenzar terapia psicológica y me doy cuenta que esa decisión tendría que haberla tomado hace mucho tiempo. Desde el inicio me sentí muy cómodo ya que se creó una buena conexión con Beli y sé que esa
+                    conexión ha sido fundamental para que el proceso terapéutico haya dado resultado. Siempre estaré agradecido por todo lo que se ha preocupado por mí y por todo lo que me ha ayudado y me sigue ayudando porque aunque he mejorado muchísimo,
+                    todavía quedan cosas que seguir trabajando y eso haré con su ayuda.
+                </p>
+            </ng-template>
+            <ng-template swiperSlide class="mb-3  px-3">
+                <h1 class="text-center"><i class="fas fa-quote-left text-secondary"></i></h1>
+                <h3 class="text-center">Diana, 48 años</h3>
+                <p class="text-justify">
+                    Me ha enseñado a comprender mis emociones a mejorar mi relación con mis hijos y a gestionar conflictos. Mis miedos, inseguridades, sufrimientos hacían que yo misma me ponga trabas y me aleje de mi familia. Belizabeth me ayudó a encontrar aspectos de mi
+                    vida que me dolían y me brindó herramientas que yo no sabía que necesitaba para comprenderme, aceptarme y empezar a quererme tal y como yo soy. Estas herramientas que adquirí hoy me permiten amarme y cuidar de mí y me han ayudado a
+                    conectar de nuevo con mi familia y con todo lo que me hace feliz. Estoy muy agradecida de haberte conocido Beli, gracias por todo.
+                </p>
+            </ng-template>
+
+            <ng-template swiperSlide class="mb-3  px-3">
+                <h1 class="text-center"><i class="fas fa-quote-left text-secondary"></i></h1>
+                <h3 class="text-center">Ricardo, 33 años</h3>
+                <p class="text-justify">
+                    Acudí a terapia con Belizabeth Montilla meses atrás me sentía muy triste y desesperado ya que descubrí que mi esposa me había sido infiel, en el proceso de terapia entendí que nuestra relación había cambiado y lo habíamos descuidado desde hace mucho tiempo
+                    atrás y gracias a la terapia hoy hemos superado esa traición de mi esposa podemos vernos como dos personas Con diferencias y con muchos aciertos, hoy estamos juntos y aprendimos a aceptarnos. Es una profesional muy recomendada.
+                </p>
+            </ng-template>
+        </swiper>
+
+    </div>
+
+    <div class="row m-auto" style="width: 100%;">
+        <div class=" col-12 text-center">
+            <button style="z-index: 4;" routerLink="/testimonios" class="btn btn-primary btn-circle"> <i class="fas fa-list"></i> Ver todos </button>
+        </div>
+    </div>
+    <br><br>
+
+
+    <div *ngIf="videosCount != 0">
+        <br>
+        <div style="height: 70px; overflow: hidden;position:absolute;bottom:0;width: 100%;z-index: 3;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:white;"></path></svg></div>
+
+        <div style="height: 100px; overflow: hidden;position:absolute;bottom:0;width: 100%;z-index: 2;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-53.89,53.80 C149.99,150.00 343.40,-32.05 534.71,131.75 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill:rgb(255, 227, 255);"></path></svg></div>
+    </div>
+    <!-- <div style="height: 10px;background:rgb(255, 211, 255);;width: 100%;position: absolute;bottom:0;left:0">
+
+    </div> -->
+</div>

@@ -1,0 +1,99 @@
+<div class="animate fadeIn" style="position: relative;">
+    <div class="loader-g" *ngIf="dataLoading">
+        <h1> <i class="fas fa-sync fa-spin bg-spin"></i> </h1>
+    </div>
+    <div class=" my-5">
+        <div class="container2">
+            <h1 class=" title-fucsia">Contáctame</h1>
+        </div>
+        <div class="container2">
+            <br>
+            <div class="row">
+                <div class="col-xl-7">
+                    <div class="row m-auto" style="max-width: 700px;">
+                        <div class="col-sm-6 m-auto ">
+                            <div (click)="goWhatsapp()" class="cursor containerContact mb-4  bg-blue-linear-right">
+                                <div class="cut-left"></div>
+                                <div class="cut-right"></div>
+                                <div class="">
+                                    <h1 class="text-center"> <i style="font-size: 110%;" class="fab fa-whatsapp"></i> </h1>
+                                    <h5 class="text-center"> 0992747842 </h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 m-auto ">
+                            <div class="containerContact mb-4 bg-fucsia-linear-right">
+                                <div class="cut-left"></div>
+                                <div class="cut-right"></div>
+                                <div class="">
+                                    <h1 class="text-center"> <i class="fas fa-user-plus"></i> </h1>
+                                    <a href="https://www.facebook.com/BelizabethMontilla" target="blank" class="link">
+                                        <h6 class="text-center"> <i class="fab fa-facebook-square"></i> Belizabeth Montilla </h6>
+                                    </a>
+                                    <a class="link" href="https://www.instagram.com/belizabethmontillapsicologa/?hl=es">
+                                        <h6 class="text-center"> <i class="fab fa-instagram"></i> Belizabethmontillapsicologa </h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 m-auto ">
+                            <div class="containerContact mb-4 bg-white" style="border:solid 1px rgb(187, 187, 187)">
+                                <div class="cut-left"></div>
+                                <div class="cut-right"></div>
+                                <div class="">
+                                    <h1 class="text-center text-dark"> <i class="fas fa-envelope"></i> </h1>
+                                    <h6 class="text-center text-dark" style="word-wrap: break-word;"> info@belizabethmontilla.com </h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-sm-6 m-auto ">
+                            <div class="containerContact mb-4  bg-blue-linear-right">
+                                <div class="cut-left"></div>
+                                <div class="cut-right"></div>
+                                <div class="">
+                                    <h1 class="text-center"> <i class="fas fa-map-marked-alt"></i> </h1>
+                                    <h5 class="text-center"> Quito - Ecuador </h5>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <!-- <h3 class="text-center text-fucsia"> <i class="fas fa-map-marked-alt text-blue" aria-hidden="true"></i> <span class="text-blue"> Quito</span> - Ecuador</h3> -->
+                </div>
+
+                <div class="col-xl-5 mt-3 mb-5">
+
+                    <div class="card form-contact  m-auto" style="max-width: 420px;">
+                        <div class="card-body p-4">
+                            <h4 class=" text-fucsia my-3"> <i class="fas fa-envelope"></i> Envíame un correo</h4>
+                            <form [formGroup]="form" (ngSubmit)="sendMessage()">
+                                <div class="form-group">
+                                    <label for="">Tu correo:</label>
+                                    <input formControlName="email" type="email" name="" id="" class="form-control" placeholder="correo@ejemplo.com" aria-describedby="helpId">
+                                    <label *ngIf="validate('email').valid" class="text-danger"> {{validate('email').error }} </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-" for="">Mensaje:</label>
+                                    <textarea formControlName="message" placeholder="Mensaje..." class="form-control" name="" id="" cols="40" rows="5"></textarea>
+
+                                    <label *ngIf="validate('message').valid" class="text-danger"> {{validate('message').error }} </label>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-blue float-right ml-2 mb-2"> <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button>
+                                    <button (click)="form.reset()" type="button" class="btn btn-fucsia float-right"> <i class="fas fa-times" aria-hidden="true"></i> Cancelar</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

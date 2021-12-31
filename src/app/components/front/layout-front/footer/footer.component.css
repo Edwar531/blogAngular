@@ -1,0 +1,40 @@
+    .footer {
+        overflow: auto;
+        background: linear-gradient(to bottom, rgb(49, 49, 49), rgb(0, 0, 0));
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 0 !important;
+        color: white !important;
+        border-top: 2px solid white;
+    }
+    
+    .footer .col {
+        display: flex;
+        justify-self: center;
+        align-items: center;
+    }
+    
+    .footer .col div {
+        margin: auto;
+    }
+    
+    @media (max-width:1250px) {
+        .footer .container2 {
+            width: 100%;
+        }
+    }
+    
+    .link {
+        color: white;
+        text-decoration: none !important;
+    }
+    
+    .footer-sap {
+        background: linear-gradient(to bottom, rgb(49, 49, 49), rgb(0, 0, 0));
+        margin-top: 20px;
+    }
+    
+    .btn-sap {
+        text-decoration: none;
+        color: white;
+    }

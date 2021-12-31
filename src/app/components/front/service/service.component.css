@@ -1,0 +1,28 @@
+.image-service {
+    width: 600px;
+    border-radius: 20px;
+    border: solid 7px var(--fucsia-l);
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+@media (max-width:1200px) {
+    .image-service {
+        width: 50%;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width:720px) {
+    .image-service {
+        width: 60%;
+    }
+}
+
+@media (max-width:540px) {
+    .image-service {
+        width: 100%;
+    }
+}

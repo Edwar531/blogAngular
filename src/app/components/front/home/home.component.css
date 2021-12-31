@@ -1,0 +1,156 @@
+        .banner {
+            z-index: 1;
+            position: relative;
+            margin-top: -20px;
+            height: 850px;
+        }
+        
+        .banner .container-img-profile {
+            width: 400px;
+            height: 550px;
+            background-size: cover;
+            background-position: center;
+            margin-top: 5px;
+            border-top-right-radius: 150px;
+            border-bottom-left-radius: 150px;
+            border: solid 8px rgba(255, 255, 255, 0.685);
+            position: relative;
+        }
+        
+        .title {
+            margin-top: 60px;
+            color: white;
+            text-shadow: 1px 1px rgb(5, 5, 5), -1px -1px rgb(104, 104, 104);
+        }
+        
+        .title h1 {
+            font-family: 'Carattere', cursive !important;
+            font-size: 50px !important;
+            text-shadow: 2px 2px rgb(70, 70, 70), -1px -1px rgb(70, 70, 70), 1px 1px 5px rgb(70, 70, 70);
+            text-align: center;
+        }
+        
+        .title h2 {
+            font-family: 'Carattere', cursive !important;
+            font-size: 45px !important;
+            text-shadow: 2px 2px rgb(70, 70, 70), -1px -1px rgb(70, 70, 70), 1px 1px 5px rgb(70, 70, 70);
+            text-align: center;
+        }
+        
+        .banner .text2 {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            z-index: 5;
+            font-size: 40px;
+            line-height: 1 !important;
+            color: white;
+            text-shadow: 2px 2px rgb(104, 104, 104), -1px -1px rgb(104, 104, 104), 1px 1px 5px rgb(104, 104, 104);
+            font-family: 'Josefin Sans', sans-serif;
+            text-align: center;
+        }
+        
+        .banner .text h1 {
+            font-family: 'Carattere', cursive !important;
+            font-size: 50px !important;
+            text-shadow: 2px 2px rgb(36, 36, 36), -1px -1px rgb(36, 36, 36);
+        }
+        
+        .banner .text h2 {
+            font-family: 'Carattere', cursive !important;
+            font-size: 40px !important;
+            text-shadow: 2px 2px rgb(36, 36, 36), -1px -1px rgb(36, 36, 36);
+        }
+        
+        @media (max-width:1300px) {
+            .banner .container-img-profile {
+                width: 380px;
+            }
+            .banner .text2 {
+                left: 50%;
+                font-size: 40px !important;
+            }
+        }
+        
+        @media (max-width:992px) {
+            .banner .container-img-profile {
+                width: 300px;
+                height: 500px;
+            }
+            .banner .text2 {
+                left: 50%;
+                font-size: 30px !important;
+            }
+            .banner .text h1 {
+                font-size: 38px;
+                text-shadow: 1px 1px rgb(36, 36, 36);
+            }
+            .banner .text h2 {
+                font-size: 34px;
+                text-shadow: 1px 1px rgb(36, 36, 36);
+            }
+            .banner .container-img-profile .text {
+                left: 50px;
+            }
+        }
+        
+        @media (max-width:768px) {
+            .title h1 {
+                font-family: 'Carattere', cursive !important;
+                font-size: 40px !important;
+                text-shadow: 2px 2px rgb(70, 70, 70), -1px -1px rgb(70, 70, 70), 1px 1px 5px rgb(70, 70, 70);
+            }
+            .title h2 {
+                font-family: 'Carattere', cursive !important;
+                font-size: 35px !important;
+                text-shadow: 2px 2px rgb(70, 70, 70), -1px -1px rgb(70, 70, 70), 1px 1px 5px rgb(70, 70, 70);
+            }
+            .banner .text2 {
+                font-size: 24px !important;
+            }
+            .banner .container-img-profile {
+                width: 300px;
+                height: 500px;
+            }
+            .banner .container2 {
+                width: 95%;
+            }
+        }
+        
+        @media (max-width:600px) {
+            .banner .container-img-profile {
+                width: 100%;
+                max-width: 350px;
+                margin: auto;
+                margin-top: 10px;
+                height: 450px;
+            }
+            .banner .container-img-profile .text {
+                left: 50px;
+            }
+            .banner .text2 {
+                top: 103%;
+                left: 0;
+            }
+            .banner {
+                height: 860px
+            }
+        }
+        
+        .coach2 {
+            display: none;
+        }
+        
+        @media (max-width:400px) {
+            .coach1 {
+                display: none;
+            }
+            .coach2 {
+                display: inherit;
+            }
+        }
+        /* <576px	Small
+    ≥576px	Medium
+    ≥768px	Large
+    ≥992px	Extra large
+    ≥1200px */

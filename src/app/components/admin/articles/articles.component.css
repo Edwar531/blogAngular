@@ -1,0 +1,27 @@
+.dataTable thead {
+    background: var(--blue) !important;
+    color: white;
+}
+
+.dataTable {
+    border: solid 1px var(--grey);
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-tabs {
+    border-color: grey;
+}
+
+.nav-tabs .nav-item .nav-link {
+    background: white;
+    border-color: rgb(202, 201, 201) !important;
+    border-bottom: 1px solid grey !important;
+    color: rgb(172, 172, 172);
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    border-color: grey !important;
+    background: white;
+    border-bottom: 1px solid white !important;
+    color: black;
+}

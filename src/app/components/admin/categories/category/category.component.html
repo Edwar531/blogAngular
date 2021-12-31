@@ -1,0 +1,32 @@
+<div class="container2 animate fadeIn">
+
+    <div class="loader-g-admin" *ngIf="dataLoading || sending">
+        <h1> <i class="fas fa-sync rotated bg-spin"></i> </h1>
+    </div>
+    <div class="card" style="max-width: 400px;" *ngIf="!dataLoading">
+        <form [formGroup]="form" (ngSubmit)="saveUpdate()">
+            <div class="card-header bg-white">
+                <h2 class="m-0">
+                    <span *ngIf="!edit">Agregar</span>
+                    <span *ngIf="edit">Editar</span> Categoría
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input formControlName="name" type="text" class="form-control" value="" maxlength="25">
+                    <label *ngIf="validate('name').valid" class="text-danger"> {{validate('name').error }} </label>
+                </div>
+                <div class="form-group " style="overflow:hidden;">
+
+                    <button type="submit" class="btn btn-primary ml-2 float-right mb-2">
+                      <span *ngIf="!edit">Guardar</span>
+                      <span *ngIf="edit">Guardar cambios</span>
+
+                    </button>
+                    <button (click)="goBack()" type="button" class="btn btn-white float-right mb-2">Cancelar / volver</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

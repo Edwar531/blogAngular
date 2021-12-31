@@ -1,0 +1,46 @@
+<div id="navbar">
+
+    <div class="container2 form-inline" style="height: 100%;">
+        <div id="section-logo">
+
+            <h4 class="text cursor m-0 hide-md" routerLink="/administrar/articulos"> Administrador B.M.</h4>
+            <h4 class="text cursor m-0 show-md" routerLink="/administrar/articulos"> Admin B.M.</h4>
+        </div>
+        <div id="section-links" class="">
+            <span [ngClass]="{'active':isRouteAdmin()}" class="link hide-lg" (click)="goArticles()"> <i class="fas fa-newspaper"></i> Artículos </span>
+            <span [ngClass]="{'active':isRouteAdmin()}" class="link  hide-lg" routerLink="/administrar/categorias-articulos"> <i class="fas fa-list"></i> Categorías artículos </span>
+            <span [ngClass]="{'active':isRouteAdmin}" (click)="goVideos()" class="link  hide-lg" routerLinkActive="active"> <i class="fab fa-youtube"></i> Videos</span>
+
+
+            <div class="link hide-lg" *ngIf="loadUserAuth == true ||userAuth != null">
+                <div class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i> Belizabeth
+                </div>
+                <div class="dropdown-menu dropdown-menu-right mt-1" style="margin-right: -15px;" aria-labelledby="dropdownMenuButton">
+
+                    <a [ngClass]="{'active':isRouteAdmin}" routerLink="/administrar/cambiar-contraseña" class="dropdown-item"> <i class="fas fa-exchange-alt"></i> Cambiar contraseña</a>
+                    <a (click)="sendLogout()" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                </div>
+            </div>
+
+
+            <div class="link ml-auto show-lg">
+                <div class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right mt-1" style="margin-right: -15px;" aria-labelledby="dropdownMenuButton">
+                    <a (click)="goArticles()" class="dropdown-item"> <i class="fas fa-newspaper"></i> Artículos</a>
+                    <a routerLink="/administrar/categorias-articulos" class="dropdown-item"> <i class="fas fa-list"></i> Categorías artículos</a>
+
+                    <a (click)="goVideos()" class="dropdown-item"> <i class="fab fa-youtube"></i> Videos</a>
+                    <a routerLink="/administrar/cambiar-contraseña" class="dropdown-item"> <i class="fas fa-exchange-alt"></i> Cambiar contraseña</a>
+
+                    <a (click)="sendLogout()" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

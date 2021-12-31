@@ -1,0 +1,48 @@
+<div class="animate fadeIn container2">
+    <div class="loader-g-admin" *ngIf="!dataLoading || sending">
+        <div>
+            <h2><i class="fas fa-sync rotated"></i></h2>
+        </div>
+    </div>
+
+
+    <div class="card mt-4" style="" *ngIf="formula">
+        <div class="card-header bg-white">
+            <h2 *ngIf="!edit" class="m-0">Agregar video</h2>
+            <h2 *ngIf="edit" class="m-0">Editar video</h2>
+        </div>
+        <div class="card-body">
+            <form #formulario [formGroup]="formula" (ngSubmit)="saveUpdate()" id="formulario">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="form-group">
+                            <label for="">Título</label>
+                            <input maxlength="70" formControlName="title" type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <label *ngIf="validate('title').valid" class="text-danger"> {{validate('title').error }} </label>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="form-group">
+                            <label for="">Link video Youtube</label>
+                            <input maxlength="200" formControlName="url" type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                            <label *ngIf="validate('url').valid" class="text-danger"> {{validate('url').error }} </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-blue  float-right ml-2 mb-2"> <i class="fas fa-save"></i>
+                    <span *ngIf="!edit"> Guardar</span>
+                    <span *ngIf="edit"> Guardar Cambios</span>
+
+
+                  </button>
+                    <button routerLink="/administrar/videos" type="button" class="btn btn-white float-right"> <i class="fas fa-times"></i> Cancelar / volver</button>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

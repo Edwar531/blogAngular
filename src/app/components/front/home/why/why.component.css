@@ -1,0 +1,17 @@
+.help-you img {
+    width: 450px;
+    float: left;
+    margin-right: 50px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border: var(--fucsia-l) solid 6px;
+    max-height: 570px;
+    /* object-position: top; */
+    object-fit: cover;
+}
+
+.help-you .text {
+    font-style: italic;
+    font-weight: 500 !important;
+    line-height: 1.5;
+}

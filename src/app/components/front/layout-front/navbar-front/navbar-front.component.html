@@ -1,0 +1,143 @@
+<div class="navbar-front" *ngIf="!isRouteAdmin()" style="width: 100%;">
+    <!-- <div class="text-center whatsapp-xs" style="margin-bottom:-8px">
+        <a style="font-size:16px" (click)="goWhatsapp()" class="link-header cursor first  m-auto"> <i class="fab fa-whatsapp" style="font-size: 120%;margin-bottom:-30px"></i> <span style="font-family: 'Josefin Sans', sans-serif;font-weight: 500;margin-left: 0px;"> 0992747842</span> </a>
+    </div> -->
+
+    <div class="container2 logo">
+        <!-- <img class="radiance2" src="assets/imagenes/default/resplandor.png" alt=""> -->
+        <div routerLink="" class="cursor" style="height:50px;float:left;display: flex;justify-content: center;align-items:center">
+            <h1 class="text-logo show-sm mt-3 mr-3">B. Montilla</h1>
+        </div>
+
+        <img routerLink="" class="cursor hide-sm" src="assets/imagenes/default/FIRMA W.png" alt="">
+        <!-- <img class="radiance" src="assets/imagenes/default/resplandor.png" alt=""> -->
+        <div class="links-header">
+            <a target="_blank" href="https://www.facebook.com/BelizabethMontilla" class=" link-header hide-xxs hide-lg  ml-auto"> <i class="fab fa-facebook-square" style="font-size: 120%;" aria-hidden="true"></i> <span> belizabeth Montilla</span> </a>
+
+            <a target="_blank" href="https://www.instagram.com/belizabethmontillapsicologa/?hl=es" class="hide-lg link-header  hide-xxs"> <i class="fab fa-instagram" style="font-size: 120%;" aria-hidden="true"></i> <span class="hide-lg"> belizabethmontillapsicologa</span> </a>
+
+            <a (click)="goWhatsapp()" class="link-header cursor hide-lg"> <i class="fab fa-whatsapp" style="font-size: 120%;"></i> <span style="font-family: 'Josefin Sans', sans-serif;font-weight: 500;margin-left: 0px;"> 0992747842 </span> </a>
+
+            <!--<a (click)="goWhatsapp()" class="link-header cursor show-lg ml-auto"> <i class="fab fa-whatsapp" style="font-size: 130%;"></i> <span style="font-family: 'Josefin Sans', sans-serif;font-weight: 500;margin-left: 0px;"></span> </a> -->
+
+            <a data-toggle="modal" data-target="#modalMain" class="link-header foat-left show-lg ml-auto cursor"> <i class="fas fa-bars" style="font-size: 120%;"></i> <span class="hide-lg"> </span> </a>
+        </div>
+    </div>
+
+    <div class="links-footer hide-lg">
+        <a href="" class="link-nav" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a href="" class="link-nav" routerLinkActive="active" routerLink="/sobre-mi">Sobre mí</a>
+        <a href="" class="link-nav" routerLinkActive="active" routerLink="/servicios">Servicios</a>
+        <div class="dropdown">
+            <span class="link-nav " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Blog
+                <i  style="font-size: 60%;" class="fas fa-caret-down"></i>
+            </span>
+            <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+                <a *ngFor="let category of categories" class="dropdown-item" [routerLink]="['/blog/categoria/'+category.slug]"> <i class="fas fa-pencil-alt text-fucsia"></i> {{category.name}}</a>
+                <a class="dropdown-item" [routerLink]="['/blog']"> <i class="fas fa-pencil-alt text-fucsia"></i> Todas las categorías</a>
+            </div>
+        </div>
+
+        <a *ngIf="videoCount != 0" href="" class="link-nav" routerLinkActive="active" routerLink="/videos">Videos</a>
+
+        <a href="" class="link-nav" routerLinkActive="active" routerLink="/testimonios">Testimonios</a>
+        <a href="" class="link-nav" routerLinkActive="active" routerLink="/contactame">Contáctame</a>
+    </div>
+    <div>
+
+    </div>
+</div>
+<div class="space-navbar-absolute" *ngIf="!isRouteAdmin()"></div>
+<div class="nav-front-2" *ngIf="navbar2" style="width: 100%;">
+
+    <div class="container2">
+        <!-- <div class="text-center whatsapp-xs-footer" style="margin-bottom:-7px">
+            <a style="font-size:16px !important" (click)="goWhatsapp()" class="link-nav link cursor first  m-auto"> <i class="fab fa-whatsapp" style="font-size: 120%;margin-bottom:-30px"></i> <span style="font-family: 'Josefin Sans', sans-serif;font-weight: 500;margin-left: 0px;"> 0992747842</span> </a>
+        </div> -->
+        <div routerLink=" " class="logo-text-nav-2 cursor">
+            <h2 class="">B. M.</h2>
+        </div>
+        <div class="links">
+            <a href="" class="link-nav hide-lg" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+            <a href="" class="link-nav  hide-lg" routerLinkActive="active" routerLink="/sobre-mi">Sobre mí</a>
+            <a href="" class="link-nav  hide-lg" routerLinkActive="active" routerLink="/servicios">Servicios</a>
+
+            <div class="dropdown">
+                <span class="link-nav hide-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Blog <i style="font-size: 50%;" class="fas fa-caret-down"></i>
+              </span>
+                <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+                    <a *ngFor="let category of categories" class="dropdown-item" [routerLink]="['/blog/categoria/'+category.slug]"> <i class="fas fa-pencil-alt text-fucsia"></i> {{category.name}}</a>
+                    <a class="dropdown-item" [routerLink]="['/blog']"> <i class="fas fa-pencil-alt text-fucsia"></i> Todas las categorías</a>
+                </div>
+            </div>
+
+
+            <a *ngIf="videoCount != 0" class="link-nav  hide-lg" routerLinkActive="active" routerLink="/videos">Videos</a>
+            <a class="link-nav hide-lg" routerLinkActive="active" routerLink="/testimonios">Testimonios</a>
+            <a class="link-nav  hide-lg" routerLinkActive="active" routerLink="/contactame">Contáctame</a>
+
+            <a (click)="goWhatsapp()" class="link-nav cursor  hide-lg ml-2"><i style="font-size: 90%;" class="fab fa-whatsapp"></i> <span style="font-family: 'Josefin Sans', sans-serif;font-size: 70%;font-weight: 500;"></span> </a>
+            <a target="_blank" href="https://www.instagram.com/belizabethmontillapsicologa/?hl=es" class="hide-sm link-nav ml-auto show-lg "><i style="font-size:120%" class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.facebook.com/BelizabethMontilla" class="link-nav show-lg hide-sm"><i style="font-size:120%" class="fab fa-facebook-square"></i></a>
+
+            <a (click)="goWhatsapp()" class="link-nav cursor show-lg ml-auto-sm "><i style="font-size:120%" class="fab fa-whatsapp"></i> <span class="hide-sm" style="font-family: 'Josefin Sans', sans-serif;font-size: 85%;font-weight: 500;margin-left: 5px;"> </span></a>
+
+            <a data-toggle="modal" data-target="#modalMain" class="link-nav ml-auto menu-bars show-lg cursor"> <i style="width: 100%;" class="fas fa-bars"></i> </a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal right fade" id="modalMain" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-blue-gradient-left">
+            <div class="modal-body" style="overflow-y: scroll;">
+                <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                <h2 class="text-center text-white" style="text-shadow: 2px 2px var(--blue);">Menu</h2>
+
+                <div class="main-modal mt-5">
+                    <a data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+                    <a data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/sobre-mi">Sobre mí</a>
+                    <a data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/servicios">Servicios</a>
+                    <div class="">
+                        <span (click)="categoryModalShow = !categoryModalShow" class="link-nav" type="button">
+                        Blog
+                        <i *ngIf="categoryModalShow" style="font-size: 60%;" class="fas fa-caret-up"></i>
+
+                        <i *ngIf="!categoryModalShow" style="font-size: 60%;" class="fas fa-caret-down"></i>
+                    </span>
+                        <div *ngIf="categoryModalShow" class="links-categories animate fadeIn">
+                            <a (click)="categoryModalShow = !categoryModalShow" data-toggle="modal" data-target="#modalMain" *ngFor="let category of categories" class="category-link" [routerLink]="['/blog/categoria/'+category.slug]"> <i class="fas fa-pencil-alt"></i> {{category.name}}</a>
+                            <a (click)="categoryModalShow = !categoryModalShow" data-toggle="modal" data-target="#modalMain" class="category-link" [routerLink]="['/blog']"> <i class="fas fa-pencil-alt"></i> Todas las categorías</a>
+                        </div>
+                    </div>
+
+                    <a *ngIf="videoCount != 0" data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/videos">Videos</a>
+                    <a data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/testimonios">Testimonios</a>
+                    <a data-toggle="modal" data-target="#modalMain" href="" class="link-nav" routerLinkActive="active" routerLink="/contactame">Contáctame</a>
+
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+<div (click)="goWhatsapp()" class="container-btn-whatsapp form-inline" *ngIf="!isRouteAdmin()">
+    <button type="button" class="btn btn-primary btn-whatsapp btn-circle">
+    <i style="font-size: 35px;" class="fab fa-whatsapp"></i>
+
+     </button>
+    <div class="container-number-whatsapp">
+        <p style="margin-right: 50px;" class="m-0 mt-2 ml-2" style="padding-bottom: 5px;font-weight: 500 !important;">Contacto Directo</p>
+    </div>
+</div>

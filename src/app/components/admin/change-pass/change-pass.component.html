@@ -1,0 +1,38 @@
+<div class="container2 animate fadeIn">
+    <div class="loader-g-admin" *ngIf="sending">
+        <h1>
+            <i class="fas fa-sync rotated bg-spin"></i>
+        </h1>
+    </div>
+    <div class="card" style="max-width: 350px;">
+        <form [formGroup]="form" (ngSubmit)="sendPass()">
+            <div class="card-header bg-white">
+                <h4 class="m-0">Cambiar contraseña</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="">Contraseña actual</label>
+                    <input maxlength="20" type="password" class="form-control" formControlName="password_now">
+                    <label *ngIf="validate('password_now').valid" class="text-danger"> {{validate('password_now').error }} </label>
+                </div>
+                <div class="form-group">
+                    <label for="">Nueva contraseña</label>
+                    <input maxlength="20" type="password" class="form-control" formControlName="password_new">
+                    <label *ngIf="validate('password_new').valid" class="text-danger"> {{validate('password_new').error }} </label>
+                </div>
+                <div class="form-group">
+                    <label for="">Repita la nueva contraseña</label>
+                    <input maxlength="20" type="password" class="form-control" formControlName="password_new_repeat">
+                    <label *ngIf="validate('password_new_repeat').valid" class="text-danger"> {{validate('password_new_repeat').error }} </label>
+                </div>
+                <div class="row form-group">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-right ml-2">Cambiar</button>
+                        <button (click)="resetForm()" class="btn btn-white float-right">Cancelar</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

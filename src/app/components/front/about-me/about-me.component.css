@@ -1,0 +1,31 @@
+.img-profile {
+    width: 580px;
+    float: right;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: var(--fucsia-l) solid 6px;
+    border-radius: 10px;
+    border-bottom-right-radius: 70px;
+    border-top-left-radius: 70px;
+    object-fit: cover;
+}
+
+@media(max-width:1400px) {
+    .img-profile {
+        width: 500px;
+    }
+}
+
+@media(max-width:1200px) {
+    .img-profile {
+        width: 50%;
+    }
+}
+
+@media(max-width:576px) {
+    .img-profile {
+        width: 100%;
+        margin-left: 0;
+    }
+}

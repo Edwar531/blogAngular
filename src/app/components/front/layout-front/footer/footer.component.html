@@ -1,0 +1,49 @@
+<div class="footer" *ngIf="!isRouteAdmin()" style="clear: both;">
+    <div class="container2">
+        <div class="row" style="width: 100%;">
+            <div class="col-12  col-sm-6 col-md-6 col-lg-3 col-xl-3 my-3">
+                <div>
+                    <h2 class="text-center cursor" (click)="goWhatsapp()"> <i class="fab fa-whatsapp"></i> </h2>
+
+                    <h6 class="text-center cursor" (click)="goWhatsapp()"> 0992747842 </h6>
+                </div>
+            </div>
+            <div class=" col-12  col-sm-6 col-md-6 col-lg-3 col-xl-3 my-3">
+                <div>
+                    <h2 class="text-center"> <i class="fas fa-user-plus"></i> </h2>
+                    <a class="link" href="https://www.facebook.com/BelizabethMontilla" target="_blank">
+                        <h6 class="text-center"> <i class="fab fa-facebook-square"></i> belizabeth Montilla </h6>
+                    </a>
+                    <a class="link" href="https://www.instagram.com/belizabethmontillapsicologa/?hl=es" target="_blank">
+                        <h6 class="text-center"> <i class="fab fa-instagram"></i> belizabethmontillapsicologa </h6>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class=" col-12  col-sm-6 col-md-6 col-lg-3 col-xl-3 my-3">
+                <div>
+                    <h2 routerLink="/contactame" class="text-center cursor"> <i class="fas fa-envelope"></i> </h2>
+
+                    <h6 routerLink="/contactame" class="text-center cursor"> info@belizabethmontilla.com </h6>
+                </div>
+            </div>
+
+            <div class=" col-12  col-sm-6 col-md-6 col-lg-3 col-xl-3 my-3">
+                <div class="">
+                    <h2 class="text-center"> <i class="fas fa-map-marked-alt"></i> </h2>
+
+                    <h6 class="text-center"> Quito - Ecuador </h6>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- <div class="footer-sap text-center p-1">
+        <a href="" class="btn-sap">
+            <h6 class="m-0"><small>Desarrollado por: <img style="width:14px;" src="assets\imagenes\sapiencia\logo-sap.png" alt=""> Sapienciaweb.com</small></h6>
+        </a>
+    </div> -->
+</div>

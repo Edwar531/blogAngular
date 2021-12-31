@@ -1,0 +1,85 @@
+.containerContact {
+    /* width: 100%;
+    height: 240px;
+    position: relative;
+    padding: 20px;
+    color: white !important;
+    display: flex;
+    justify-self: center;
+    align-items: center; */
+    width: 100%;
+    height: 240px;
+    -webkit-transform: skew(5deg);
+    -moz-transform: skew(5deg);
+    -ms-transform: skew(5deg);
+    -o-transform: skew(5deg);
+    transform: skew(5deg);
+    color: white !important;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.096);
+}
+
+.containerContact div {
+    width: 100%;
+    position: absolute;
+    -webkit-transform: skew(0deg);
+    -moz-transform: skew(0deg);
+    -ms-transform: skew(0deg);
+    -o-transform: skew(0deg);
+    transform: skew(0deg);
+}
+
+.containerContact h5 {
+    font-size: 25px;
+}
+
+.form-contact {
+    border-radius: 50px;
+    /* color: white !important; */
+    /* text-shadow: 1px 1px var(--fucsia) !important; */
+    border-color: var(--fucsia-l) !important;
+    /* box-shadow: 5px 5px 3px rgba(128, 128, 128, 0.239); */
+}
+
+.form-contact input {
+    border-color: var(--fucsia-b) !important;
+}
+
+.form-contact textarea {
+    border-color: var(--fucsia-b) !important;
+}
+
+.btn {
+    border-radius: 50px;
+    box-shadow: 5px 5px 3px rgba(128, 128, 128, 0.315);
+}
+
+
+/* 576px Medium ≥768px Large ≥992px Extra large ≥1200px */
+
+@media (max-width:576px) {
+    .containerContact {
+        max-width: 270px;
+        margin: auto;
+    }
+    /* .containerContact h1 {
+        font-size: 40px !important;
+    }
+    .containerContact h5 {
+        font-size: 25px !important;
+    }
+    .containerContact h6 {
+        font-size: 20px !important;
+    } */
+}
+
+.link {
+    color: white;
+    text-decoration: none !important;
+}
+
+.link:hover {
+    cursor: pointer;
+}

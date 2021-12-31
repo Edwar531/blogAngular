@@ -1,0 +1,40 @@
+  <div class="row" *ngIf="(articles | filterBlog:'title':filterTitle:'categorySlug':filterCategory:'orderBy':orderBy) as results">
+                    <div [ngClass]="{'col-xl-4 col-sm-6 col-md-4 col-lg-6': listStyle}" class="col-12 mb-3 p-1" *ngFor="let article of results | paginate:config">
+                        <div [ngClass]="{'sm': listStyle}" class="card cardArticle  m-auto" style="height: 100%;max-width: 400px;">
+                            <div class="card-header">
+                                <div class="background"></div>
+                                <img class="" [src]="article.imageP | imageWidth:'':'notImageFront'" alt="">
+                                <div class="title">
+                                    <h5 class="text-center mx-4 text">{{article.title}}</h5>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <p class=" font-14 m-0 text-secondary"><span class="text-fucsia">Categoría: </span>{{article.categoryName}}</p>
+                                <p class=" font-14 m-0 text-secondary"><span class="text-fucsia">Autor: </span>{{article.author}} </p>
+                                <p class=" font-14 m-0 text-secondary"><span class="text-fucsia">Fecha: </span>{{article.datetime | date:'dd/MM/yyyy - H:m'}} </p>
+                                <p class="text-justify m-0 mt-2"> {{ (article.summary.length>120)? (article.summary | slice:0:120)+'...':(article.summary) }}</p>
+                            </div>
+                            <div class="card-footer p-3 pt-0">
+                                <button [routerLink]="['/blog/articulo/'+article.categorySlug+'/'+article.slug]" type="button" class="btn btn-fucsia btn-block float-right btn-circle">
+                                Leer <i class="fas fa-arrow-right"></i>
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-5" *ngIf="results.length !==0">
+                        <div class="row">
+                            <div class="col-xl-4" style="display:flex;justify-content:center;align-items:center">
+                                <h5 class="mt-3"> Página: {{this.config.currentPage}} <span class="font-500">de: </span> {{ (results.length / this.config.itemsPerPage).toFixed(0)}}
+                                </h5>
+                            </div>
+                            <div class="col-xl-8 blog" style="display:flex;justify-content:center;align-items:center">
+                                <div class="container-pagination">
+                                    <pagination-controls (pageChange)="pageChanged($event)" [responsive]=" true " previousLabel="Ant. " nextLabel="Sig. " screenReaderPaginationLabel="Paginación " screenReaderPageLabel="página " screenReaderCurrentLabel=" Estás en la página "></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 " *ngIf="results.length == 0">
+                        <h4 class="text-secondary mt-2 "> <i class="fas fa-exclamation "></i> No se encontraron resultados. </h4>
+                    </div>
+                </div>

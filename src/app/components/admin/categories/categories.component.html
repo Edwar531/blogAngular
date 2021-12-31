@@ -1,0 +1,32 @@
+<div class="container2 animate fadeIn">
+    <div class="loader-g-admin" *ngIf="dataLoading || sending">
+        <h1>
+            <i class="fas fa-sync rotated bg-spin"></i>
+        </h1>
+    </div>
+    <button routerLink="/administrar/categoria/crear" type="button" class="btn btn-primary mb-2 float-right"> <i class="fas fa-plus"></i> Nuevo</button>
+    <h2>Categorías</h2>
+    <br>
+    <table style="width: 100%;" datatable [dtOptions]="dtOptions" class="table table-condensed table-bordered table-hover">
+    </table>
+</div>
+
+<!-- MODAL ElIMINAR -->
+<ng-template #modalDelete let-c="close" let-d="dismiss ">
+    <div class="loader-g" *ngIf="dataLoading">
+        <h1> <i class="fas fa-sync fa-spin bg-spin"></i> </h1>
+    </div>
+    <div class="modal-header bg-danger ">
+        <h4 class="modal-title text-white " id="modal-basic-title "> <i class="fas fa-exclamation-triangle "></i> Atención</h4>
+        <button type="button " class="close " aria-label="Close " (click)="d( 'Cross click') ">
+    <span aria-hidden="true ">×</span>
+</button>
+    </div>
+    <div class="modal-body ">
+        <h5 class="text-danger ">¿Está seguro de eliminar esta categoría de forma permanente?</h5>
+    </div>
+    <div class="modal-footer ">
+        <button type="button " class="btn btn-white " (click)="d('cancel') "> <i class="fas fa-times "></i> No</button>
+        <button type="button " class="btn btn-danger " (click)="c('yes') "> <i class="fas fa-check "></i> Si</button>
+    </div>
+</ng-template>

@@ -1,0 +1,131 @@
+<div class="container2 animate fadeIn mt-5 pb-5" *ngIf="!dataLoading">
+
+    <div class="loader-g" *ngIf="dataLoading">
+        <h1> <i class="fas fa-sync fa-spin bg-spin"></i> </h1>
+    </div>
+
+    <div class="side-bar" *ngIf="dataLoading == false && innerWidth >= 992px">
+        <div class="card mb-3">
+            <form [formGroup]="formSearch" (ngSubmit)="search()">
+                <div class="card-body pb-4">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Título</label>
+                            <input formControlName="title" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="form-group">
+                            <select formControlName="category" class="custom-select">
+                          <option [ngValue]="''" [selected]="true">Todas</option>
+                          <option *ngFor="let category of categories" [ngValue]="category.slug">{{category.name}}</option>
+                        </select>
+                        </div>
+                        <div class="form-group" style="overflow:auto">
+                            <button type="submit" class="btn btn-fucsia  float-right ml-2 mt-2 btn-block"> <i class="fas fa-search"></i> Buscar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 (click)="changeCategory('')" class="my-2 category"><i class="fas fa-pencil-alt pb-2 text-fucsia"></i> Todas </h5>
+                <h5 *ngFor="let category of categories" (click)="changeCategory(category.slug)" class="my-2 category"><i class="fas fa-pencil-alt pb-2 text-fucsia"></i> {{category.name}} </h5>
+            </div>
+        </div>
+    </div>
+    <!-- ---end sidebar--- -->
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-12">
+                    <button data-target="#modal-sidebar" data-toggle="modal" type="button" class="btn btn-fucsia float-right btn-sm ml-2 mt-1"> <i class="fas fa-bars"></i> </button>
+                    <h1 class="title-fucsia title-fucsia-article m-0">{{article.title}}</h1>
+                </div>
+            </div>
+
+
+            <img *ngIf="!dataLoading" class="imageP mt-4 animate fadeIn" [src]="imageP | imageWidth:'':'notImageFront'" alt="">
+            <div class="mt-2" *ngIf="!dataLoading">
+                <h5><span class="text-fucsia">Categoría: </span>{{article.categoryName}} </h5>
+
+                <p class="m-0"><span class="text-fucsia font-600">Autor(a): </span>{{article.author}} </p>
+                <!-- <p class="m-0"><span class="text-fucsia font-600">Fecha: </span>{{article.datetime | date:'dd/MM/yyyy - H:m'}} </p> -->
+
+            </div>
+            <div class="mt-2 text-tiny-mce text-justify" [innerHTML]="article.description"> </div>
+
+            <div class="mt-5">
+                <button *ngIf="articleAnt == 'disabled'" type="button" class="disabled  btn btn-fucsia btn-circle "> <i class="fas fa-arrow-left"></i> Artículo ant.    </button>
+
+                <button *ngIf="articleSig == 'disabled'" type="button" class="mb-2 disabled  btn btn-fucsia btn-circle float-right"> Sig. artículo  <i class="fas fa-arrow-right"></i> </button>
+
+                <button *ngIf="articleAnt !== 'disabled'" [routerLink]="'/blog/articulo/'+articleAnt.slugCategory+'/'+articleAnt.slug" type="button" class="btn btn-fucsia btn-circle  mb-2"> <i class="fas fa-arrow-left"></i> Artículo ant.    </button>
+
+                <button *ngIf="articleSig !== 'disabled'" [routerLink]="'/blog/articulo/'+articleSig.slugCategory+'/'+articleSig.slug" type="button" class="btn btn-fucsia btn-circle float-right mb-2"> Sig. artículo  <i class="fas fa-arrow-right"></i> </button>
+
+
+                <div class="text-center mt-3" *ngIf="!dataLoading">
+                    <button (click)="backToArticles()" type="button" class="btn btn-white btn-circle">
+                      <span *ngIf="buttonBackHistory"> <i class="fas fa-backward"></i> Volver a artículos</span>
+                      <span *ngIf="!buttonBackHistory"> <i class="fas fa-list"></i> Ir a artículos</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- ---end sidebar--- -->
+</div>
+
+<!-- MODAL SIDEBAR -->
+
+<div class="modal right fade" id="modal-sidebar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div style="overflow:auto">
+                    <button #closeModal type="button" class="close float-right mb-3" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="side-bar" style="float:none;width: 100%;max-width: 250px;margin:0;margin:auto">
+                    <div class="card mb-3">
+                        <form [formGroup]="formSearch" (ngSubmit)="search()" *ngIf="dataLoading == false && innerWidth < 992px">
+                            <div class="card-body pb-4">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="">Título</label>
+                                        <input formControlName="title" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="form-group">
+                                        <select formControlName="category" class="custom-select">
+                                  <option [ngValue]="''" [selected]="true">Todas</option>
+                                  <option *ngFor="let category of categories" [ngValue]="category.slug">{{category.name}}</option>
+                                </select>
+                                    </div>
+                                    <div class="form-group" style="overflow:auto">
+                                        <button type="submit" class="btn btn-fucsia  float-right ml-2 mt-2 btn-block" data-target="#modal-sidebar" data-toggle="modal"> <i class="fas fa-search"></i> Buscar</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 (click)="changeCategory('')" class="my-2 category"><i class="fas fa-pencil-alt pb-2 text-fucsia"></i> Todas </h5>
+                            <h5 *ngFor="let category of categories" (click)="changeCategory(category.slug)" class="my-2 category"><i class="fas fa-pencil-alt pb-2 text-fucsia"></i> {{category.name}} </h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+        </div>
+    </div>
+</div>

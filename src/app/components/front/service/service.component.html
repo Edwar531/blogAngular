@@ -1,0 +1,20 @@
+<div class="container2 mt-5 animate fadeIn">
+    <div class="mt-3">
+        <h1 class="title-fucsia">{{service[2].name}}</h1>
+        <img class="image-service mt-3" src="{{service[1].image}}" alt="">
+
+        <p class="text-justify" *ngFor="let parrafo of service[0].parrafos">
+            {{parrafo}}
+        </p>
+
+        <div class="row mt-4" style="width: 100%;">
+            <div class="col-12 p-0">
+                <button type="button" class="btn btn-fucsia btn-lg mb-2" (click)="goBack(service[2].name)"> <i class="fas fa-arrow-left"></i> Atrás </button>
+
+                <button routerLink="/contactame" type="button" class="btn btn-blue btn-lg mb-2 ml-2 float-right"> <i class="fas fa-phone-square-alt fa-rotate-90"></i> Agendar cita</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

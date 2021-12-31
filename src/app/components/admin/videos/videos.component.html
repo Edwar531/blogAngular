@@ -1,0 +1,94 @@
+<div class="animate fadeIn container2">
+    <div class="loader-g-admin" *ngIf="!dataLoading">
+        <div>
+            <h2><i class="fas fa-sync rotated"></i></h2>
+        </div>
+    </div>
+    <button routerLink="/administrar/video/crear" type="button" class="btn btn-blue float-right mt-2"> <i class="fas fa-plus"></i> Nuevo </button>
+    <h2>Administrar videos</h2>
+    <br>
+    <div style="overflow:auto ;">
+        <div class="input-group float-right mb-4" style="max-width:280px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Buscar</span>
+            </div>
+            <input #filterInput (keyup)="getfilter($event)" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class=" animate fadeIn" *ngIf="dataLoading" style="width: 100%;">
+
+        <!-- *ngFor="let video of videos | filter:search:searchtext | paginate:config" -->
+        <div *ngIf="(videos | filter:search:searchtext) as results" class="row">
+
+            <div *ngFor="let video of results | paginate:config" class="col-xl-3 col-lg-4 p-2 col-md-5 col-sm-6 col-12 m-auto ">
+                <div class="card cardVideo" style="height: 100%;">
+                    <div class="card-header videoHover p-0 " *ngIf="!video.showVideo">
+                        <!-- <div class="container-circle-play">
+                            <div class="circle-play">
+                                <i class="fas fa-play icon-play"></i>
+                            </div>
+                        </div> -->
+                        <img src="https://img.youtube.com/vi/{{video.id_video}}/0.jpg" alt="">
+                        <div class="text">
+                            <h5 class="text-center">{{video.title}}</h5>
+                        </div>
+                    </div>
+                    <div class="card-header p-0" *ngIf="video.showVideo">
+                        <div class="loader-video" style="z-index:1">
+                            <div>
+                                <i class="fas fa-spinner fa-pulse"></i>
+                            </div>
+                        </div>
+                        <iframe style="z-index:2;position: relative;" id="video-iframe" [src]="urlSanitizer('https://www.youtube.com/embed/'+video.id_video)" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+
+                    <div class="card-body ">
+
+
+                        <button routerLink="/administrar/video/{{video.id}}/editar" type="button" class=" ml-2 btn btn-blue btn-sm float-right "><i class="fas fa-pencil-alt"></i></button>
+                        <button (click)="openModal(content ,video.id)" type="button" class="btn btn-danger btn-sm float-right ml-2"><i class="fas fa-trash-alt"></i></button>
+
+                        <button (click)="goVideo(video)" type="button" class="btn btn-white btn-sm float-right "><i class="fas fa-eye"></i></button>
+                        <!-- <p class="m-0 text card-title  text-center text-white">{{video.title}}</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" *ngIf="results.length == 0">
+                <h4 class="text-secondary mt-2 "> <i class="fas fa-exclamation "></i> No se encontraron resultados. </h4>
+            </div>
+            <div class="col-12" *ngIf="results.length != 0">
+                <div class="row mt-5" *ngIf="dataLoading">
+                    <div class="col-lg-6" style="display:flex;justify-content:center;align-items:center">
+                        <h5 class="mt-3 "> Página: {{this.config.currentPage}} <span class="font-500 ">de: </span> {{ numberPage(results.length,this.config.itemsPerPage) }}
+                        </h5>
+                    </div>
+                    <div class="col-lg-6 " style="display:flex;justify-content:center;align-items:center">
+                        <div class="container-pagination">
+                            <pagination-controls (pageChange)="pageChanged($event) " [responsive]="true " previousLabel="Ant. " nextLabel="Sig. " screenReaderPaginationLabel="Paginación " screenReaderPageLabel="página " screenReaderCurrentLabel=" Estás en la página "></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- MODAL BORRAR -->
+<ng-template #content let-c="close " let-d="dismiss ">
+    <div class="modal-header bg-danger ">
+        <h4 class="modal-title text-white " id="modal-basic-title "> <i class="fas fa-exclamation-triangle "></i> Atención</h4>
+        <button type="button " class="close " aria-label="Close " (click)="d( 'Cross click') ">
+          <span aria-hidden="true ">×</span>
+      </button>
+    </div>
+    <div class="modal-body ">
+        <h5 class="text-danger ">¿Estás seguro de borrar este video de forma permanente?</h5>
+    </div>
+    <div class="modal-footer ">
+        <button type="button " class="btn btn-white " (click)="d( 'cancel') "> <i class="fas fa-times "></i> No</button>
+        <button type="button " class="btn btn-danger " (click)="c( 'yes') "> <i class="fas fa-check "></i> Si</button>
+    </div>
+</ng-template>
